@@ -1,3 +1,14 @@
+Minor style modification
+=========
+
+- Removed blank space as Word template
+- Added Chapter X to every chapter on the same line for chapter titles + toc
+- Changed toc style: bold for chapters
+
+
+
+
+ORIGINALLY FROM:
 臺灣大學碩博士論文 XeLaTeX 模版
 ==========
 

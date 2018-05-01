@@ -131,7 +131,11 @@
 
 \newenvironment{quotationpage}[1]
   {\clearpages
+   \makeatletter
+   \let\savedchap\@makechapterhead
    \chapter*{\centerline{#1}}
+   \let\@makechapterhead\savedchap
+   \makeatletter
    \addcontentsline{toc}{chapter}{#1}
    
 %%% QUOTATION: change geometry to quote size

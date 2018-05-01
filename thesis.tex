@@ -10,6 +10,14 @@
 \usepackage{wallpaper} % watermark
 
 
+%%% Change chapter format + remove white strips %%%
+\titleformat{\chapter}[hang]
+{\normalfont\huge\bfseries}{\chaptertitlename~\thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titlespacing*{name=\chapter,numberless}{0pt}{-30pt}{10pt}
+%%%%%%%%%%%%%   END  %%%%%%%%%%%%
+
+
 % Format the refs
 \usepackage[sort,comma]{natbib}
 \usepackage[hidelinks]{hyperref}
@@ -54,7 +62,7 @@
 % generate certification
 \makecertification
 % or include scanned pdf
-\addcontentsline{toc}{chapter}{口試委員會審定書}
+%\addcontentsline{toc}{chapter}{口試委員會審定書}
 %\includepdf[pages={1}]{pdfs/cert.pdf}
 
 \input{acknowledgements}
@@ -72,6 +80,16 @@
 
 \mainmatter
 
+
+%% CHANGE TOC FORMAT main chapters %%
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {\bfseries}% <above-code>
+  {\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\cftdotfill{\cftdotsep}\contentspage}% <filler-page-format>
+%%%   End   %%%
+
 % Your thesis goes here
 \input{chapters/introduction}
 
@@ -82,11 +100,31 @@ test \textbf{Test bold} et \textit{Test it} et \textbf{\textit{test BolDiT}}
 \input{chapters/experiment}
 \input{chapters/conclusion}
 
-\@startappendix
+\clearpage
+\appendix  % \@startappendix
+
+%% CHANGE TOC FORMAT Appendix %%
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {\bfseries}% <above-code>
+  {\thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\cftdotfill{\cftdotsep}\contentspage}% <filler-page-format>
+%%%   End   %%%
+
 
 \input{chapters/dataset}
 
 \backmatter
+
+%% CHANGE TOC FORMAT Bilbiography %%
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\cftdotfill{\cftdotsep}\contentspage}% <filler-page-format>
+%%%   End   %%%
 
 \clearpages
 \phantomsection
